@@ -1,0 +1,226 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_common1.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Exam Name Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: crimson;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #2196f3;
+            backdrop-filter: blur(30px);
+            box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+            border: 2px solid rgba(225,255,255,0.18);
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(#2196f3, #e91e63);
+            overflow: hidden;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        .form-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: #e91e63;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #e91e63;
+            text-align: center;
+        }
+
+        .input-group {
+            position: relative;
+            width: 320px;
+            margin: 30px 0;
+        }
+
+            .input-group label {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+                font-size: 16px;
+                color: #e91e63;
+                padding: 0 5px;
+                pointer-events: none;
+                transition: .5s;
+            }
+
+            .input-group input {
+                width: 100%;
+                height: 40px;
+                font-size: 16px;
+                color: #e91e63;
+                padding: 0 10px;
+                background: transparent;
+                border: 1px solid #e91e63;
+                outline: none;
+                border-radius: 5px;
+            }
+
+                .input-group input:focus ~ label,
+                .input-group input:valid ~ label {
+                    top: 0;
+                    font-size: 12px;
+                    background: #e91e63;
+                }
+                /* Add shadow effect on input focus */
+                .input-group input:focus {
+                    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+                    border: 1px solid #007bff;
+                }
+
+        /* Button hover effect */
+        .btn:hover {
+            box-shadow: 0 8px 15px #e91e63(0, 0, 0, 0.2);
+            background: linear-gradient(to right, #e91e63, #2196f3);
+            transform: translateY(-2px);
+        }
+
+        /* 3D shadow effect on card */
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px #e91e63(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 12px 24px #e91e63(0, 0, 0, 0.3);
+            }
+
+        .forgot-pass {
+            margin: -15px 0 15px;
+        }
+
+            .forgot-pass a {
+                color: #e91e63;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+                .forgot-pass a:hover {
+                    text-decoration: underline;
+                }
+
+        .btn {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to right, #2196f3, #e91e63);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+            font-size: 16px;
+            color: #2196f3;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        .sign-link {
+            font-size: 14px;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+            .sign-link p {
+                color: #333;
+            }
+
+                .sign-link p a {
+                    color: #e91e63;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+
+                    .sign-link p a:hover {
+                        text-decoration: underline;
+                    }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="card p-4">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Enter Post Name</h3>
+                <form>
+                    <!-- Exam Name -->
+                    <div class="mb-3">
+                        <label for="PostName" class="form-label">PostName</label>
+                        <input type="text" class="form-control" id="PostName" placeholder="Enter Post Name" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
